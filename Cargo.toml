@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/DSTC_backend"
+]
+resolver = "2"
