@@ -7,56 +7,58 @@ import {
   Grid,
   Box,
 } from "@mui/material";
-
-interface BlogPost {
-  id: number;
-  title: string;
-  content: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "First Blog Post",
-    content: "This is the content of the first blog post.",
-  },
-  {
-    id: 2,
-    title: "Second Blog Post",
-    content: "This is the content of the second blog post.",
-  },
-  {
-    id: 3,
-    title: "Third Blog Post",
-    content: "This is the content of the third blog post.",
-  },
-  {
-    id: 4,
-    title: "Fourth Blog Post",
-    content: "This is the content of the fourth blog post.",
-  },
-  {
-    id: 5,
-    title: "Fifth Blog Post",
-    content: "This is the content of the fifth blog post.",
-  },
-];
+import { DSTC_backend, createActor } from "../../../declarations/DSTC_backend";
+import { HttpAgent } from "@dfinity/agent";
+import { Link } from "react-router-dom";
 
 const BlogCardsComponent: React.FC = () => {
+  const [dusts, setDusts] = React.useState<any>([]);
+  let actor = DSTC_backend;
+  const agent = new HttpAgent();
+  //here you can use an env variable for actor canister ID
+  actor = createActor("avqkn-guaaa-aaaaa-qaaea-cai", {
+    agent,
+  });
+
+  async function fetchDusts() {
+    let dusts = await actor.get_dusts();
+    return dusts;
+  }
+  React.useEffect(() => {
+    async function fetchData() {
+      const fetchedDusts = await fetchDusts();
+      setDusts(fetchedDusts);
+    }
+
+    fetchData();
+  }, []);
   return (
     <Container sx={{ mt: 4, width: "100vw", color: "#ffffff" }}>
       <Grid container spacing={4}>
-        {blogPosts.map((post) => (
-          <Grid item xs={12} sm={6} md={4} key={post.id}>
+        {dusts.map((post: any, id: number) => (
+          <Grid item xs={12} sm={6} md={4} key={id}>
+            {dusts.length < 1 && (
+              <h5 style={{ textAlign: "center" }}>No dusts posted yet</h5>
+            )}
             <Card sx={{ background: "#1e1e1e" }}>
-              <CardContent>
-                <Typography variant="h5" gutterBottom sx={{ color: "#bb86fc" }}>
-                  {post.title}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "#ffffff" }}>
-                  {post.content}
-                </Typography>
-              </CardContent>
+              <Box
+                component={Link}
+                to={`/Dusts/${id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{ color: "#bb86fc" }}
+                  >
+                    {post.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "#ffffff" }}>
+                    {post.content?.join(" ").slice(0, 100) + "..."}
+                  </Typography>
+                </CardContent>
+              </Box>
             </Card>
           </Grid>
         ))}

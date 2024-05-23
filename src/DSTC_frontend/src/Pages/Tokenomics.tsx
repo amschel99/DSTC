@@ -4,8 +4,6 @@ import {
   Card,
   CardContent,
   Typography,
-  Grid,
-  Box,
   List,
   ListItem,
   ListItemText,

@@ -9,6 +9,9 @@ import {
   Box,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { DSTC_backend, createActor } from "../../../declarations/DSTC_backend";
+import { HttpAgent } from "@dfinity/agent";
+import { useNavigate } from "react-router-dom";
 
 const darkTheme = createTheme({
   palette: {
@@ -55,13 +58,29 @@ const darkTheme = createTheme({
 });
 
 const PublishStoryComponent: React.FC = () => {
+  const navigate = useNavigate();
+
+  let actor = DSTC_backend;
+  const agent = new HttpAgent();
+  //the id here is local one
+  actor = createActor("avqkn-guaaa-aaaaa-qaaea-cai", {
+    agent,
+  });
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
 
-  const handlePublish = () => {
-    // Implement publish functionality here, such as sending data to an API
-    console.log("Title:", title);
-    console.log("Story:", story);
+  const handlePublish = async () => {
+    let story_no_lines = story.replace(/\r?\n|\r/g, " ");
+    let words = story_no_lines.split(" ");
+
+    let res = await actor.publish_dust(words, title);
+
+    if (res.length > 0) {
+      alert("Succesfully published a dust");
+      navigate("/");
+    } else {
+      alert("Could not publish a dust");
+    }
   };
 
   return (

@@ -10,7 +10,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import AdbIcon from "@mui/icons-material/Adb";
 
 const pages = ["Dusts", "Tokenomics", "Share"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -25,10 +24,6 @@ function ResponsiveAppBar() {
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {

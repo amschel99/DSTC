@@ -9,7 +9,9 @@
     "prebuild": "npm run prebuild --workspaces --if-present",
     "pretest": "npm run prebuild --workspaces --if-present",
     "start": "npm start --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
+    "test": "npm test --workspaces --if-present",
+    "local": " ./did.sh &&  dfx generate DSTC_frontend && dfx generate DSTC_backend && dfx deploy -y",
+     "publish": "dfx deploy --network ic "
   },
   "type": "module",
   "workspaces": [
