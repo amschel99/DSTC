@@ -1,14 +1,8 @@
-type Dust = record {
-  id : nat64;
-  title : text;
-  content : vec text;
-  votes : opt VOTE;
-  publisher : principal;
-};
+type Dust = record { id : nat64; title : text; content : text };
 type Result = variant { Ok : Dust; Err : text };
-type VOTE = record { count : nat64; principals : opt vec principal };
+type Result_1 = variant { Ok : text; Err : text };
 service : {
-  get_dusts : () -> (vec Dust) query;
+  get_dusts : () -> (vec record { nat64; Dust }) query;
   get_single_dust : (nat64) -> (Result) query;
-  publish_dust : (vec text, text) -> (opt Dust);
+  publish_dust : (text, text) -> (Result_1);
 }

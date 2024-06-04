@@ -1,0 +1,11 @@
+{
+  "DSTC_backend": {
+    "ic": "kc5xa-pqaaa-aaaap-qhk3a-cai"
+  },
+  "DSTC_frontend": {
+    "ic": "kf4ru-ciaaa-aaaap-qhk3q-cai"
+  },
+  "icrc1_ledger_canister": {
+    "ic": "kl644-zyaaa-aaaap-qhk2q-cai"
+  }
+}

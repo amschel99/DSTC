@@ -8,15 +8,15 @@ import {
   Box,
 } from "@mui/material";
 import { DSTC_backend, createActor } from "../../../declarations/DSTC_backend";
-import { HttpAgent } from "@dfinity/agent";
+import {  HttpAgent } from "@dfinity/agent";
 import { Link } from "react-router-dom";
 
 const BlogCardsComponent: React.FC = () => {
   const [dusts, setDusts] = React.useState<any>([]);
   let actor = DSTC_backend;
-  const agent = new HttpAgent();
+  const agent:any = new HttpAgent();
   //here you can use an env variable for actor canister ID
-  actor = createActor("avqkn-guaaa-aaaaa-qaaea-cai", {
+  actor = createActor("kc5xa-pqaaa-aaaap-qhk3a-cai", {
     agent,
   });
 
@@ -35,7 +35,7 @@ const BlogCardsComponent: React.FC = () => {
   return (
     <Container sx={{ mt: 4, width: "100vw", color: "#ffffff" }}>
       <Grid container spacing={4}>
-        {dusts.map((post: any, id: number) => (
+        {dusts.map(([_, post]:any,id: number) => (
           <Grid item xs={12} sm={6} md={4} key={id}>
             {dusts.length < 1 && (
               <h5 style={{ textAlign: "center" }}>No dusts posted yet</h5>
@@ -55,7 +55,7 @@ const BlogCardsComponent: React.FC = () => {
                     {post.title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#ffffff" }}>
-                    {post.content?.join(" ").slice(0, 100) + "..."}
+                    {post.content?.slice(0, 100) + "..."}
                   </Typography>
                 </CardContent>
               </Box>

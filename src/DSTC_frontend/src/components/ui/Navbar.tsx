@@ -11,10 +11,11 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 
+
 const pages = ["Dusts", "Tokenomics", "Share"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({handleConnectWallet}:any) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -86,11 +87,14 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
+                <Link to={`/${page}`}>
+             
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" sx={{ color: "#bb86fc" }}>
                     {page}
                   </Typography>
                 </MenuItem>
+                   </Link>
               ))}
             </Menu>
           </Box>
@@ -131,8 +135,8 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button variant="contained" color="primary">
-              Wallet
+            <Button variant="contained" color="primary" onClick={handleConnectWallet}>
+         Buy DSTC
             </Button>
             <Menu
               sx={{ mt: "45px" }}

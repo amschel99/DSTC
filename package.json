@@ -10,8 +10,8 @@
     "pretest": "npm run prebuild --workspaces --if-present",
     "start": "npm start --workspaces --if-present",
     "test": "npm test --workspaces --if-present",
-    "local": " ./did.sh &&  dfx generate DSTC_frontend && dfx generate DSTC_backend && dfx deploy -y",
-     "publish": "dfx deploy --network ic "
+    "local": " ./did.sh &&  dfx generate DSTC_frontend && dfx generate DSTC_backend &&  dfx deploy DSTC_backend  && dfx deploy DSTC_frontend ",
+    "publish": "./ledger.sh && dfx deploy DSTC_backend  --network ic &&  dfx deploy DSTC_frontend  --network ic "
   },
   "type": "module",
   "workspaces": [

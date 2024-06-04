@@ -8,9 +8,9 @@ const ArticleComponent: React.FC = () => {
   const { dustId } = useParams();
   const [dust, setDust] = React.useState<any>();
   let actor = DSTC_backend;
-  const agent = new HttpAgent();
+  const agent:any = new HttpAgent();
   //here you can use an env variable for actor canister ID
-  actor = createActor("avqkn-guaaa-aaaaa-qaaea-cai", {
+  actor = createActor("kc5xa-pqaaa-aaaap-qhk3a-cai", {
     agent,
   });
 
@@ -41,7 +41,7 @@ const ArticleComponent: React.FC = () => {
           </Typography>
           <Box mt={2}>
             <Typography variant="body1" sx={{ color: "#ffffff" }}>
-              {dust?.content.join(" ")}
+              {dust?.content}
             </Typography>
           </Box>
         </CardContent>

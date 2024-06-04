@@ -58,29 +58,48 @@ const darkTheme = createTheme({
 });
 
 const PublishStoryComponent: React.FC = () => {
+
+
+  function getByteLength(str:string) {
+    return new Blob([str]).size;
+}
+
+
   const navigate = useNavigate();
 
   let actor = DSTC_backend;
-  const agent = new HttpAgent();
+  const agent:any = new HttpAgent();
   //the id here is local one
-  actor = createActor("avqkn-guaaa-aaaaa-qaaea-cai", {
+  actor = createActor("kc5xa-pqaaa-aaaap-qhk3a-cai", {
     agent,
   });
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
+  const [disabled, setDisabled]=useState(false)
 
   const handlePublish = async () => {
+    setDisabled(true)
     let story_no_lines = story.replace(/\r?\n|\r/g, " ");
-    let words = story_no_lines.split(" ");
+    let words = story_no_lines
+    if (getByteLength(words) > 102400) {
+   return  alert("Please write a minimal text. The story exceeds 102400 bytes.");
+}
+else{
 
-    let res = await actor.publish_dust(words, title);
 
-    if (res.length > 0) {
+
+    let res:any =  await actor.publish_dust(words, title)
+  
+
+    if (res?.Ok ) {
+        setDisabled(false)
       alert("Succesfully published a dust");
       navigate("/");
     } else {
+             setDisabled(false)
       alert("Could not publish a dust");
     }
+  }
   };
 
   return (
@@ -111,6 +130,7 @@ const PublishStoryComponent: React.FC = () => {
               />
             </Box>
             <Button
+            disabled={disabled}
               variant="contained"
               color="primary"
               fullWidth
