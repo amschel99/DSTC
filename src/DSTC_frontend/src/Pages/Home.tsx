@@ -4,8 +4,8 @@ import Footer from "../components/ui/Footer"
 
 const Home = ({handleConnectWallet}:any) => {
   return (
-    <div style={{ maxWidth: "100%" }}>
-      <div style={{ marginBottom: "10PX" }}></div>
+    <div style={{ width: "100vw" }}>
+      <div style={{ marginBottom: "10PX", width:"100vw" }}></div>
       <Navbar handleConnectWallet={handleConnectWallet} />
       <Outlet />
       <Footer/>
