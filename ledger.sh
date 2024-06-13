@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Step 1: Set up identities
-dfx identity new minter
-dfx identity use minter
+
+dfx identity use reorg
 export MINTER=$(dfx identity get-principal)
 
 export TOKEN_NAME="DUST"  # Token name
@@ -12,8 +12,12 @@ export TOKEN_IMAGE_URL="https://github.com/amschel99/DSTC/blob/master/src/DSTC_f
 dfx identity use default
 export DEFAULT=$(dfx identity get-principal)
 
-export PRE_MINTED_TOKENS=1_000_000_000_000  # Total pre-minted token amount
-export TRANSFER_FEE=1_000  # Transfer fee
+export PRE_MINTED_TOKENS=5000000000000000
+export DEVELOPER_TOKENS=1000000000000000
+export DISTRIBUTION_TOKENS=2000000000000000
+export MARKETING_TOKENS=100000
+
+export TRANSFER_FEE=100000000000000  # Transfer fee
 
 dfx identity new archive_controller
 dfx identity use archive_controller
@@ -28,9 +32,17 @@ export FEATURE_FLAGS=true  # Enable feature flags
 dfx deploy icrc1_ledger_canister --network ic  --mode reinstall --argument "(variant { Init = record {
      token_symbol = \"${TOKEN_SYMBOL}\";
      token_name = \"${TOKEN_NAME}\";
-     minting_account = record { owner = principal \"${MINTER}\" };
+     minting_account = record { owner = principal \"owu57-ix3tx-4pgh7-pmu7n-dzlor-tqljq-wui5j-g5b2g-mtnfa-yklry-mae\" };
      transfer_fee = ${TRANSFER_FEE};
-     metadata = vec {
+ 
+     feature_flags = opt record { icrc2 = ${FEATURE_FLAGS} };
+     fee_collector_account= opt record { owner = principal \"owu57-ix3tx-4pgh7-pmu7n-dzlor-tqljq-wui5j-g5b2g-mtnfa-yklry-mae\" };
+   initial_balances = vec {
+    record { record { owner = principal \"owu57-ix3tx-4pgh7-pmu7n-dzlor-tqljq-wui5j-g5b2g-mtnfa-yklry-mae\"; }; ${DEVELOPER_TOKENS};record { owner = principal \"kc5xa-pqaaa-aaaap-qhk3a-cai\"; }; ${DISTRIBUTION_TOKENS}; };
+    
+    
+};
+   metadata = vec {
  record {
       \"icrc1:logo\";
       variant {
@@ -38,8 +50,7 @@ dfx deploy icrc1_ledger_canister --network ic  --mode reinstall --argument "(var
       };
     };
 };
-     feature_flags = opt record { icrc2 = ${FEATURE_FLAGS} };
-     initial_balances = vec { record { record { owner = principal \"${DEFAULT}\"; }; ${PRE_MINTED_TOKENS}; }; };
+
      archive_options = record {
          num_blocks_to_archive = ${NUM_OF_BLOCK_TO_ARCHIVE};
          trigger_threshold = ${TRIGGER_THRESHOLD};

@@ -8,14 +8,20 @@ import React, { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { connectNFIDWallet} from '../util/nfidWallet';
 
+import { Principal } from "@dfinity/principal";
+
 interface WalletPopupProps {
   onClose: () => void;
   handlePurchasePopup: () => void;
+  principal:String,
+  setPrincipal:any
 }
 
 const WalletPopup: React.FC<WalletPopupProps> = ({
   onClose,
   handlePurchasePopup,
+  
+  setPrincipal
 }) => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState<
@@ -42,13 +48,14 @@ const WalletPopup: React.FC<WalletPopupProps> = ({
     };
 
     try {
-      const publicKey = await (window as any).ic.plug.requestConnect({
+      const publicKey :Uint8Array= await (window as any).ic.plug.requestConnect({
         whitelist,
         host,
         onConnectionUpdate,
         timeout: 5000,
       });
       console.log(`The connected user's public key is:`, publicKey);
+      setPrincipal(Principal.selfAuthenticating(publicKey).toString())
       setConnectionStatus("success");
       setTimeout(() => {
         setConnectionStatus(null);
@@ -74,6 +81,7 @@ const WalletPopup: React.FC<WalletPopupProps> = ({
       const principal = await connectNFIDWallet();
       if (principal) {
         console.log(`The connected user's principal is:`, principal);
+        setPrincipal(principal);
         setConnectionStatus('success');
         setTimeout(() => {
           setConnectionStatus(null);

@@ -88,7 +88,7 @@ const WhitePaper = () => {
                 Executive Summary ("Dusty Beginnings")
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Dust Coin (DSTC) is a memetoken that brings humor and shared experiences of embarrassment and rejection to the blockchain. By leveraging blockchain technology, Dust Coin aims to create a global, empathetic community through the innovative use of digital storytelling. Our mission is to turn personal mishaps into collective joy, making the blockchain as relatable and engaging as our shared human experiences.
+                Dust Coin (DSTC) is a memetoken that brings humor and shared experiences of embarrassment and rejection to the blockchain. By leveraging the Internet computer network, Dust Coin aims to create a global, empathetic community through the innovative use of digital storytelling. Our mission is to turn personal mishaps into collective joy, making the blockchain as relatable and engaging as our shared human experiences.
               </Typography>
             </Box>
 
@@ -102,12 +102,9 @@ const WhitePaper = () => {
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>The Power of Shared Embarrassment</strong><br />
-                In a digital age, embarrassing moments and rejection stories have found a home online, especially on social media platforms. People share their experiences to connect, laugh, and find solidarity in their struggles. Dust Coin leverages this trend, creating a platform where users can share their stories, known as Dust Coins, and earn tokens through interaction.
+                In a digital age, embarrassing moments and rejection stories have found a home online, especially on social media platforms. People share their experiences to connect, laugh, and find solidarity in their struggles. Dust Coin leverages this trend, creating a platform where users can share their stories, known as Dusts, and earn tokens through interaction.
               </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Combining Memecoins and Storytelling</strong><br />
-                Dust Coin combines the playful nature of memecoins with the universal appeal of storytelling. By embedding these relatable experiences into our cryptocurrency, we create a project that is both accessible and engaging. Shared stories evoke empathy, laughter, and connections, making the blockchain more human and enjoyable.
-              </Typography>
+           
             </Box>
 
             <Box mt={3} mb={2}>
@@ -117,6 +114,7 @@ const WhitePaper = () => {
               <Typography variant="body1" gutterBottom>
                 <strong>Vision</strong><br />
                 To make blockchain as relatable and engaging as our shared human experiences. At Dust Coin, our vision is to create a blockchain ecosystem that fosters empathy, laughter, and community. Just as shared stories bring people together, we envision a platform that turns personal setbacks into collective growth and joy.
+
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>Mission</strong><br />
@@ -135,7 +133,7 @@ const WhitePaper = () => {
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>A Global Storytelling Platform</strong><br />
-                Dust Coin is more than just a token; it's a platform where users can share their funny and embarrassing stories, earning tokens through interaction. Our mascot, the Dusty Cat, embodies the spirit of resilience and humor, reminding us that every embarrassing moment is a chance to laugh and connect.
+                Dust Coin is more than just a token; it's a platform where users can share their funny and embarrassing stories, earning tokens through interaction. Dust coin is here to remind us that every embarrassing moment is a chance to laugh and connect.
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>Celebrating Human Experiences</strong><br />
@@ -145,16 +143,13 @@ const WhitePaper = () => {
 
             <Box mt={3} mb={2}>
               <Typography variant="h5" gutterBottom>
-                Why Blockchain? ("Our Digital Home")
+                Why ICP? 
               </Typography>
               <Typography variant="body1" gutterBottom>
-                <strong>Blockchain Benefits</strong><br />
-                The decentralized nature of blockchain provides a secure, transparent, and immutable platform for Dust Coin. This ensures that user-generated content is safely stored and accessible, fostering trust and engagement within the community.
+                <strong>Our digital home</strong><br />
+               We believe in the future of a fully decentralized Internet where all internet services run on a decentralized network. ICP is that future and it's already here. We believe anyone despite their geographical location should be able to transact on the internet freeely and engage in the digital economy without barriers from central authorities. ICP empowers everyone and we value inclucivity as DSTC community.
               </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Robust and Resilient</strong><br />
-                Blockchain technology ensures that Dust Coin remains resilient and accessible to users worldwide. The decentralized structure of blockchain aligns perfectly with our mission to create a global community that is inclusive and vibrant.
-              </Typography>
+            
             </Box>
 
             <Box mt={3} mb={2}>
@@ -163,17 +158,17 @@ const WhitePaper = () => {
               </Typography>
               {renderTokenomics()}
               <Typography variant="body1" gutterBottom>
-                <strong>Total Supply: 4 Million DSTC</strong><br />
-                Dust Coin's total supply of 4 million tokens ensures ample availability for a growing community while maintaining scarcity to drive value.
+                <strong>Total Supply: 50 Million DSTC</strong><br />
+                Dust Coin's total supply of 50 million tokens ensures ample availability for a growing community while maintaining scarcity to drive value.
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>Distribution Breakdown</strong>
                 <ul>
-                  <li>Community Rewards: 50% - To incentivize participation and engagement within the community.</li>
+                  <li>Community Rewards: 40% - To incentivize participation and engagement within the community.</li>
                   <li>Development Fund: 20% - To support ongoing platform development and innovation.</li>
                   <li>Marketing: 15% - To build awareness and attract new users.</li>
                   <li>Team: 10% - To ensure the team's continued commitment and alignment with the project's success.</li>
-                  <li>Reserve: 5% - To provide a buffer for future opportunities and challenges.</li>
+                  <li>Reserve: 15% - To provide a buffer for future opportunities and challenges.</li>
                 </ul>
               </Typography>
             </Box>
@@ -184,12 +179,9 @@ const WhitePaper = () => {
               </Typography>
               <Typography variant="body1" gutterBottom>
                 <strong>Story Sharing</strong><br />
-                Users can publish their embarrassing stories, known as Dust Coins, on our platform and earn tokens through likes, comments, and shares.
+                Users can publish their embarrassing stories, known as Dusts, on our platform and earn tokens.
               </Typography>
-                     <Typography variant="body1" gutterBottom>
-                <strong>Story Sharing</strong><br />
-                Users can publish their embarrassing stories, known as Dust Coins, on our platform and earn tokens through likes, comments, and shares.
-              </Typography>
+                  
               <Typography variant="body1" gutterBottom>
                 <strong>Interactive Content</strong><br />
                 The platform encourages interaction with content, allowing users to engage with stories, participate in community activities, and earn Dust Coins.
@@ -218,31 +210,7 @@ const WhitePaper = () => {
               </Typography>
             </Box>
 
-            <Box mt={3} mb={2}>
-              <Typography variant="h5" gutterBottom>
-                Roadmap ("Dusty Path Ahead")
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Q3 2024: Platform Launch</strong><br />
-                Launch of the Dust Coin platform, allowing users to create accounts, share stories, and earn Dust Coins.
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Q4 2024: Community Engagement</strong><br />
-                Introduction of community engagement features, including leaderboards, badges, and interactive content.
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Q1 2025: Mobile App Release</strong><br />
-                Release of the Dust Coin mobile app to provide a seamless experience for users on the go.
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Q2 2025: Governance Implementation</strong><br />
-                Rollout of decentralized governance features, enabling community-driven decision-making.
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Q3 2025: Expanded Features</strong><br />
-                Introduction of advanced features, such as in-app games, additional rewards, and partnership integrations.
-              </Typography>
-            </Box>
+           
 
             <Box mt={3} mb={2}>
               <Typography variant="h5" gutterBottom>
@@ -317,7 +285,7 @@ const WhitePaper = () => {
                 Appendices ("Dusty Extras")
               </Typography>
               <Typography variant="body1" gutterBottom>
-                <strong>Technical Details</strong> - Comprehensive information on how Dust Coin integrates with blockchain technology, providing a seamless user experience.<br />
+                <strong>Technical Details</strong> - Comprehensive information on how Dust Coin integrates with ICP technology, providing a seamless user experience.<br />
                 <strong>Team Backgrounds</strong> - Insights into our team's expertise in tech and creative fields, ensuring the successful development of Dust Coin.<br />
                 <strong>Storytelling Trends</strong> - In-depth research into digital storytelling trends and insights, providing context and inspiration for Dust Coin's development.
               </Typography>

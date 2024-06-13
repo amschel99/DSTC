@@ -1,7 +1,8 @@
 // src/utils/nfidWallet.ts
 import { AuthClient } from '@dfinity/auth-client';
 
-export const connectNFIDWallet = async (): Promise<string | null> => {
+
+export const connectNFIDWallet = async (): Promise<string> => {
   try {
     const authClient = await AuthClient.create();
     const isAuthenticated = await authClient.isAuthenticated();
@@ -10,25 +11,33 @@ export const connectNFIDWallet = async (): Promise<string | null> => {
       const identity = authClient.getIdentity();
       return identity.getPrincipal().toText();
     } else {
-      await authClient.login({
-        onSuccess: () => {
-          console.log("NFID wallet connected successfully");
-        },
-        onError: (error: string | undefined) => {
-          if (error) {
-            console.error("Error connecting to NFID wallet:", error);
-          } else {
-            console.error("Error connecting to NFID wallet: Unknown error");
-          }
-        },
+      return new Promise((resolve, reject) => {
+        authClient.login({
+          onSuccess: (wallet) => {
+            let identity = wallet.delegations[0].delegation?.targets?.[0];
+            if (identity) {
+              resolve(identity.toString());
+            } else {
+              resolve("");
+            }
+          },
+          onError: (error: string | undefined) => {
+            if (error) {
+              console.error("Error connecting to NFID wallet:", error);
+            } else {
+              console.error("Error connecting to NFID wallet: Unknown error");
+            }
+            reject("");
+          },
+        });
       });
     }
   } catch (error) {
     console.error("Error connecting to NFID wallet:", error);
-    return null;
+    return "";
   }
-  return null;
 };
+
 
 export const isNFIDWalletConnected = async (): Promise<boolean> => {
   try {

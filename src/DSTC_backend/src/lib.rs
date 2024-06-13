@@ -63,6 +63,17 @@ async fn publish_dust(content: String, title: String) -> Result<String, String> 
         None => Ok(String::from("Posted succesfully")),
     }
 }
+#[update]
+async fn delete_all_dusts() -> Result<String, String> {
+    DUSTSGROW.with(|dusts| {
+        let mut dusts = dusts.borrow_mut();
+        let keys: Vec<u64> = dusts.iter().map(|(k, _)| k).collect();
+        for key in keys {
+            dusts.remove(&key);
+        }
+    });
+    Ok(String::from("All dusts deleted successfully"))
+}
 
 fn do_insert_dust(dust: &Dust, id: u64) -> Option<Dust> {
     DUSTSGROW.with(|service| service.borrow_mut().insert(id, dust.clone()))

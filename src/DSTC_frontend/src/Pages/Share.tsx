@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   Container,
   TextField,
@@ -57,7 +57,7 @@ const darkTheme = createTheme({
   },
 });
 
-const PublishStoryComponent: React.FC = () => {
+const PublishStoryComponent= ({principal}:any) => {
 
 
   function getByteLength(str:string) {
@@ -79,8 +79,8 @@ const PublishStoryComponent: React.FC = () => {
 
   const handlePublish = async () => {
     setDisabled(true)
-    let story_no_lines = story.replace(/\r?\n|\r/g, " ");
-    let words = story_no_lines
+    let story_no_lines = story;
+    let words =`written by ${principal}\n...........\n`+ story_no_lines
     if (getByteLength(words) > 102400) {
    return  alert("Please write a minimal text. The story exceeds 102400 bytes.");
 }
@@ -93,7 +93,7 @@ else{
 
     if (res?.Ok ) {
         setDisabled(false)
-      alert("Succesfully published a dust");
+      alert("Succesfully published a dust and  earned some  dstc check your wallet!");
       navigate("/");
     } else {
              setDisabled(false)
@@ -102,8 +102,12 @@ else{
   }
   };
 
+     if(!principal){
+        return <h1 style={{color:"white", textAlign:"center"}}>Please login with a wallet first to continue</h1>
+      }
   return (
     <ThemeProvider theme={darkTheme}>
+   
       <Container maxWidth="sm" sx={{ mt: 4 }}>
         <Card variant="outlined" sx={{ p: 3 }}>
           <CardContent>

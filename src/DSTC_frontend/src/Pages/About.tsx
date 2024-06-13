@@ -62,25 +62,25 @@ const DSTCComponent: React.FC = () => {
 
   const carouselItems = [
     {
-      title: "Exclusive Content",
-      description: "Access special stories and insights",
+      title: "Tip other creators and get tipped!",
+      description: "When you publish a story, other creators can tip you and you can also tip others by sending Dust coins",
       icon: <StarIcon sx={{ fontSize: 50, color: theme.palette.primary.main }} />,
     },
     {
-      title: "Vote on Stories",
-      description: "Have a say in what gets featured",
+      title: "Content promotion",
+      description: "Make your story more visible to others!",
       icon: <CheckCircleIcon sx={{ fontSize: 50, color: theme.palette.secondary.main }} />,
     },
     {
-      title: "Earn NFT Rewards",
-      description: "Get exclusive NFTs for your participation",
+      title: "Special Badges and Recognition",
+      description: "Get recognition from the community!",
       icon: <EmojiEventsIcon sx={{ fontSize: 50, color: theme.palette.primary.main }} />,
     },
   ];
 
   const renderTokenUtility = () => (
     <Box mt={3}>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom style={{textAlign:"center"}}>
         DSTC Token Utility
       </Typography>
       <Carousel
@@ -107,16 +107,16 @@ const DSTCComponent: React.FC = () => {
 
   const whitePaperSections = [
     {
-      title: "The Story Behind Dust Coin",
-      content: "Dust Coin originates from the comic term 'seeing dust,' which means getting embarrassed or rejected, particularly in romantic pursuits. Our platform allows users to share their funny and embarrassing stories, known as Dust Coins, and earn tokens through publication and interaction. Dust Coin leverages blockchain technology to create a transparent and decentralized platform where users can publish their experiences and engage with a supportive community. By turning these relatable moments into a token economy, we aim to transform personal setbacks into shared laughter and collective growth."
+      title: "Dusting off unfair life moments",
+      content: "Seeing Dust is a metaphor for an unfair moment in life when you did something embarassing or got rejected by the person you thought was the love of your life. This is a universal human experience and everyone has had 'Dust moments'"
     },
     {
-      title: "The Community",
-      content: "Dust Coin is more than just a token; it's a vibrant community of people who find humor and solidarity in shared experiences of embarrassment and rejection. Users connect through storytelling, laughing at shared mishaps, and supporting each other. Our platform fosters a sense of belonging and camaraderie, encouraging users to share their stories without fear of judgment. By participating in the Dust Coin ecosystem, members contribute to a culture of empathy and resilience, where every 'dusty' moment is a step towards building a stronger, more united community."
+      title: "Turn Dust into content",
+      content: "Have that cringy poem you wrote for your crush who rejected you? Share with the community. Share any embarassing moments you've had in the past or present or that you anticipate to have 😂"
     },
     {
-      title: "Activities and Uses",
-      content: "Users can publish their stories, interact with content by liking, commenting, and sharing, and earn Dust Coins. The token can be used for voting on featured stories, accessing exclusive content, and earning unique NFTs. Additionally, Dust Coin holders can participate in community-driven events, challenges, and contests that celebrate creativity and humor. As the platform grows, we plan to introduce new features and partnerships that enhance the utility and value of Dust Coins, making them an integral part of the digital storytelling landscape."
+      title: "The Dust platform",
+      content: "On this platform, users can publish their stories, interact with content by liking, commenting, and sharing, and earn Dust Coins. "
     },
     {
       title: "Who Will Use the Token",
@@ -125,11 +125,11 @@ const DSTCComponent: React.FC = () => {
   ];
 
   const tokenomicsData = [
-    { name: 'Community Rewards', value: 50, color: theme.palette.primary.main },
+    { name: 'Community Rewards', value: 40, color: theme.palette.primary.main },
     { name: 'Development Fund', value: 20, color: theme.palette.secondary.main },
     { name: 'Marketing', value: 15, color: '#00e676' }, // Neon Green
     { name: 'Team', value: 10, color: '#ff9100' }, // Neon Orange
-    { name: 'Reserve', value: 5, color: '#d500f9' }, // Neon Purple
+    { name: 'Reserve', value: 15, color: '#d500f9' }, // Neon Purple
   ];
 
   const renderWhitePaper = () => (
@@ -160,7 +160,7 @@ const DSTCComponent: React.FC = () => {
       <Card sx={{ background: theme.palette.background.paper, mb: 3, p: 2, boxShadow: 'none' }}>
         <CardContent>
           <Typography variant="h5" gutterBottom color="secondary">
-            Total Supply: 4 Million
+            Total Supply: 50 Million
           </Typography>
          <ResponsiveContainer width="100%" height={400} >
             <PieChart>
@@ -210,21 +210,15 @@ const DSTCComponent: React.FC = () => {
               Welcome to DSTC - Dust Coin
             </Typography>
             <Typography variant="subtitle1" gutterBottom align="center" color="textSecondary">
-              A memetoken popularized by the famous Dust memes
+Intersecting humour,storytelling and technology 
             </Typography>
             <Box mt={2} mb={2} textAlign="center">
               <Typography variant="h6" gutterBottom>
-                "In life, dust is always constant" - A wise man
+             Let's all laugh about our past embarrasing moments
               </Typography>
-              <Typography variant="h6" gutterBottom>
-                "Simps always see dust" - Another wise man
-              </Typography>
+           
             </Box>
-            <Typography variant="body1" gutterBottom align="center">
-              Seeing dust means getting disappointed by someone, mostly someone
-              you love or have a crush on but doesn't love you back. Do not be a
-              simp. Else you'll see dust.
-            </Typography>
+          
             {renderTokenUtility()}
             {renderWhitePaper()}
             {renderTokenomics()}

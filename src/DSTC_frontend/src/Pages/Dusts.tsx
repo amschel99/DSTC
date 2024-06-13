@@ -40,26 +40,22 @@ const BlogCardsComponent: React.FC = () => {
             {dusts.length < 1 && (
               <h5 style={{ textAlign: "center" }}>No dusts posted yet</h5>
             )}
-            <Card sx={{ background: "#1e1e1e" }}>
-              <Box
-                component={Link}
-                to={`/Dusts/${id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    gutterBottom
-                    sx={{ color: "#bb86fc" }}
-                  >
-                    {post.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "#ffffff" }}>
-                    {post.content?.slice(0, 100) + "..."}
-                  </Typography>
-                </CardContent>
-              </Box>
-            </Card>
+           <Card sx={{ backgroundColor: "#1e1e1e", color: "#ffffff", minHeight: "150px", padding: "16px", borderRadius: "8px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+  <Box
+    component={Link}
+    to={`/Dusts/${id}`}
+    style={{ textDecoration: "none", color: "inherit" }}
+  >
+    <CardContent>
+      <Typography variant="h5" gutterBottom sx={{ color: "#bb86fc" }}>
+        {post.title}
+      </Typography>
+      <Typography variant="body2" sx={{ color: "#ffffff" }}>
+        {post.content?.slice(0, 100) + "..."}
+      </Typography>
+    </CardContent>
+  </Box>
+</Card>
           </Grid>
         ))}
       </Grid>

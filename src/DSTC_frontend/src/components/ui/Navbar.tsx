@@ -13,7 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
-const pages = ["Dusts", "Share","Whitepaper"];
+const pages = ["Dusts", "Share","Whitepaper", "Roadmap","How it works"];
 
 
 const ResponsiveAppBar: React.FC<{ handleConnectWallet: () => void }> = ({
@@ -115,7 +115,7 @@ const ResponsiveAppBar: React.FC<{ handleConnectWallet: () => void }> = ({
               onClick={handleConnectWallet}
               sx={{ mr: 2 }}
             >
-              Buy DSTC
+         Connect wallet
             </Button>
           
             
