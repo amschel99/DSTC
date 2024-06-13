@@ -1,21 +1,24 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  MenuItem,
+  Button,
+  Container,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 
+const pages = ["Dusts", "Share","Whitepaper"];
 
-const pages = ["Dusts", "Tokenomics", "Share"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar({handleConnectWallet}:any) {
+const ResponsiveAppBar: React.FC<{ handleConnectWallet: () => void }> = ({
+  handleConnectWallet,
+}) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -42,11 +45,11 @@ function ResponsiveAppBar({handleConnectWallet}:any) {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
@@ -57,10 +60,10 @@ function ResponsiveAppBar({handleConnectWallet}:any) {
             DSTC
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -72,81 +75,57 @@ function ResponsiveAppBar({handleConnectWallet}:any) {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
+                vertical: "top",
                 horizontal: "left",
               }}
-              keepMounted
               transformOrigin={{
                 vertical: "top",
                 horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
             >
               {pages.map((page) => (
-                <Link to={`/${page}`}>
-             
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ color: "#bb86fc" }}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} component={Link} to={`/${page}`}>
+                  <Typography variant="body1" sx={{ color: "#bb86fc" }}>
                     {page}
                   </Typography>
                 </MenuItem>
-                   </Link>
               ))}
             </Menu>
           </Box>
 
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "#bb86fc",
-              textDecoration: "none",
-            }}
-          >
-            DSTC
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link
+              <Button
                 key={page}
+                component={Link}
                 to={`/${page}`}
-                style={{ textDecoration: "none" }}
+                sx={{ mx: 2, color: "#bb86fc" }}
               >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-              </Link>
+                {page}
+              </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button variant="contained" color="primary" onClick={handleConnectWallet}>
-         Buy DSTC
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleConnectWallet}
+              sx={{ mr: 2 }}
+            >
+              Buy DSTC
             </Button>
+          
+            
             <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
+              id="user-menu"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "right",
               }}
-              keepMounted
               transformOrigin={{
                 vertical: "top",
                 horizontal: "right",
@@ -154,19 +133,13 @@ function ResponsiveAppBar({handleConnectWallet}:any) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" sx={{ color: "#bb86fc" }}>
-                    {setting}
-                  </Typography>
-                </MenuItem>
-              ))}
+             
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 
 export default ResponsiveAppBar;
